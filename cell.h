@@ -1,3 +1,6 @@
+#ifndef CELL
+#define CELL
+
 typedef struct cell
 {
     int row;
@@ -7,3 +10,5 @@ typedef struct cell
 
 Cell newCell(int row, int col);
 void printNeighbours(Cell c);
+
+#endif
