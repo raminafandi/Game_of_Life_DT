@@ -16,4 +16,7 @@ Cell **createCells(Gameplace gp);
 void printGameplace(Gameplace gp, Cell **array);
 void printGameplaceFull(Gameplace gp, Cell **array);
 Cell **addRandomFullCells(Gameplace gp, int count);
+Cell checkFullCellDeadorAlive(Gameplace gp, Cell **array, int z, int k);
+Cell checkEmptyCellDeadorAlive(Gameplace gp, Cell **array, int z, int k);
+Cell **playGame(Gameplace gp, Cell **array);
 #endif // !GAMEPLACE
