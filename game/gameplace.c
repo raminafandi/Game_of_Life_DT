@@ -70,7 +70,7 @@ Cell **addRandomFullCells(Gameplace gp, int count)
     return arrcell;
 }
 
-Cell **playGame(Gameplace gp, Cell **array,int choice)
+Cell **playGame(Gameplace gp, Cell **array, int choice)
 {
     int size = gp.nb_row * gp.nb_col;
     Cell deletedCells[size];
@@ -78,7 +78,7 @@ Cell **playGame(Gameplace gp, Cell **array,int choice)
     int index1 = 0;
     int index2 = 0;
 
-    if(choice == 1)
+    if (choice == 1)
     {
         for (int i = 0; i < gp.nb_row; i++)
         {
@@ -123,7 +123,7 @@ Cell **playGame(Gameplace gp, Cell **array,int choice)
         array[deletedCells[i].row][deletedCells[i].col].isFull = 0;
     }
 
-   // printf("Added Cells\n");
+    // printf("Added Cells\n");
     for (int i = 0; i < index2; i++)
     {
         //printf("[ %d %d ]\n", addedCells[i].row, addedCells[i].col);

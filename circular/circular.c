@@ -8,13 +8,29 @@ Cell checkFullCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k)
         {
             int neigh_row = z + i;
             int neigh_col = k + j;
-            if (neigh_col < 0 || neigh_row < 0 || neigh_row > gp.nb_row || neigh_col > gp.nb_col)
+            if (neigh_col < 0 || neigh_row < 0 || neigh_row == gp.nb_row || neigh_col == gp.nb_col)
             {
-                int x = neigh_row < 0? neigh_row + gp.nb_row : neigh_row;
-                neigh_row = neigh_row > gp.nb_row? neigh_row - gp.nb_row : neigh_row;
-                int y = neigh_col < 0? neigh_col + gp.nb_col : neigh_col;
-                neigh_col = neigh_col > gp.nb_col? neigh_col - gp.nb_col : neigh_col;
-                if(array[x][y].isFull == 1)
+                int x = neigh_row;
+                int y = neigh_col;
+
+                if (neigh_row < 0)
+                {
+                    x = neigh_row + gp.nb_row;
+                }
+                else if (neigh_row == gp.nb_row)
+                {
+                    x = neigh_row - gp.nb_row;
+                }
+
+                if (neigh_col < 0)
+                {
+                    y = neigh_col + gp.nb_col;
+                }
+                else if (neigh_col == gp.nb_col)
+                {
+                    y = neigh_col - gp.nb_col;
+                }
+                if (array[x][y].isFull == 1)
                 {
                     index++;
                 }
@@ -42,14 +58,30 @@ Cell checkEmptyCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k)
         {
             int neigh_row = z + i;
             int neigh_col = k + j;
-            
-            if (neigh_col < 0 || neigh_row < 0 || neigh_row > gp.nb_row || neigh_col > gp.nb_col)
+
+            if (neigh_col < 0 || neigh_row < 0 || neigh_row == gp.nb_row || neigh_col == gp.nb_col)
             {
-                int x = neigh_row < 0? neigh_row + gp.nb_row : neigh_row;
-                neigh_row = neigh_row > gp.nb_row? neigh_row - gp.nb_row : neigh_row;
-                int y = neigh_col < 0? neigh_col + gp.nb_col : neigh_col;
-                neigh_col = neigh_col > gp.nb_col? neigh_col - gp.nb_col : neigh_col;
-                if(array[x][y].isFull == 1)
+                int x = neigh_row;
+                int y = neigh_col;
+
+                if (neigh_row < 0)
+                {
+                    x = neigh_row + gp.nb_row;
+                }
+                else if (neigh_row == gp.nb_row)
+                {
+                    x = neigh_row - gp.nb_row;
+                }
+
+                if (neigh_col < 0)
+                {
+                    y = neigh_col + gp.nb_col;
+                }
+                else if (neigh_col == gp.nb_col)
+                {
+                    y = neigh_col - gp.nb_col;
+                }
+                if (array[x][y].isFull == 1)
                 {
                     index++;
                 }
