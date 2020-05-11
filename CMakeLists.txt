@@ -5,8 +5,10 @@ add_subdirectory(game)
 add_subdirectory(console)
 add_subdirectory(clipped)
 add_subdirectory(circular)
+add_subdirectory(sdl2)
+
 
 add_executable(${PROJECT_NAME} main.c)
 
 
-target_link_libraries(${PROJECT_NAME} PUBLIC game console clipped circular)
+target_link_libraries(${PROJECT_NAME} PUBLIC  game console clipped circular sdl2)
