@@ -8,6 +8,5 @@
 #include"gameplace.h"
 
 void printInSDL();
-void draw(SDL_Renderer* renderer);
 
 #endif

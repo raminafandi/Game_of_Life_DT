@@ -1,7 +1,7 @@
 #include"sdl2.h"
 
-#define HEIGHT 640
-#define WIDTH 640
+#define HEIGHT 800
+#define WIDTH 1000
 
 void printInSDL()
 {
@@ -70,7 +70,7 @@ void printInSDL()
             }
             
             SDL_RenderPresent(renderer);   
-            SDL_Delay(500);
+            SDL_Delay(100);
             arrcell = playGame(gp,arrcell,choice);
         }
 
