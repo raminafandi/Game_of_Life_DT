@@ -1,4 +1,6 @@
 #include "gameplace.h"
+#include "clipped.h"
+#include "circular.h"
 
 Gameplace newgameplace(int rows, int cols)
 {
@@ -68,61 +70,7 @@ Cell **addRandomFullCells(Gameplace gp, int count)
     return arrcell;
 }
 
-Cell checkFullCellDeadorAlive(Gameplace gp, Cell **array, int z, int k)
-{
-    int index = 0;
-    for (int i = -1; i <= 1; i++)
-    {
-        for (int j = -1; j <= 1; j++)
-        {
-            int neigh_row = z + i;
-            int neigh_col = k + j;
-            if (neigh_col < 0 || neigh_row < 0 || neigh_col >= gp.nb_col || neigh_row >= gp.nb_row)
-            {
-                continue;
-            }
-            else if (neigh_row == z && neigh_col == k)
-            {
-                continue;
-            }
-            else if (array[neigh_row][neigh_col].isFull == 1)
-            {
-                index++;
-            }
-        }
-    }
-
-    return index == 3 || index == 2 ? newCell(-1, -1) : array[z][k];
-}
-
-Cell checkEmptyCellDeadorAlive(Gameplace gp, Cell **array, int z, int k)
-{
-    int index = 0;
-    for (int i = -1; i <= 1; i++)
-    {
-        for (int j = -1; j <= 1; j++)
-        {
-            int neigh_row = z + i;
-            int neigh_col = k + j;
-            if (neigh_col < 0 || neigh_row < 0 || neigh_col >= gp.nb_col || neigh_row >= gp.nb_row)
-            {
-                continue;
-            }
-            if (neigh_row == z && neigh_col == k)
-            {
-                continue;
-            }
-            if (array[neigh_row][neigh_col].isFull == 1)
-            {
-                index++;
-            }
-        }
-    }
-
-    return (index == 3) ? array[z][k] : newCell(-1, -1);
-}
-
-Cell **playGame(Gameplace gp, Cell **array)
+Cell **playGame(Gameplace gp, Cell **array, int choice)
 {
     int size = gp.nb_row * gp.nb_col;
     Cell deletedCells[size];
@@ -130,33 +78,55 @@ Cell **playGame(Gameplace gp, Cell **array)
     int index1 = 0;
     int index2 = 0;
 
-    for (int i = 0; i < gp.nb_row; i++)
+    if (choice == 1)
     {
-        for (int j = 0; j < gp.nb_col; j++)
+        for (int i = 0; i < gp.nb_row; i++)
         {
-            if (array[i][j].isFull == 1)
+            for (int j = 0; j < gp.nb_col; j++)
             {
-                if (checkFullCellDeadorAlive(gp, array, i, j).col >= 0 && checkFullCellDeadorAlive(gp, array, i, j).row >= 0)
-                    deletedCells[index1++] = checkFullCellDeadorAlive(gp, array, i, j);
-            }
-            else
-            {
-                if (checkEmptyCellDeadorAlive(gp, array, i, j).col >= 0 && checkEmptyCellDeadorAlive(gp, array, i, j).row >= 0)
-                    addedCells[index2++] = checkEmptyCellDeadorAlive(gp, array, i, j);
+                if (array[i][j].isFull == 1)
+                {
+                    if (checkFullCellDeadorAlive(gp, array, i, j).col >= 0 && checkFullCellDeadorAlive(gp, array, i, j).row >= 0)
+                        deletedCells[index1++] = checkFullCellDeadorAlive(gp, array, i, j);
+                }
+                else
+                {
+                    if (checkEmptyCellDeadorAlive(gp, array, i, j).col >= 0 && checkEmptyCellDeadorAlive(gp, array, i, j).row >= 0)
+                        addedCells[index2++] = checkEmptyCellDeadorAlive(gp, array, i, j);
+                }
             }
         }
     }
-    /// printf("Deleted Cells\n");
+    else
+    {
+        for (int i = 0; i < gp.nb_row; i++)
+        {
+            for (int j = 0; j < gp.nb_col; j++)
+            {
+                if (array[i][j].isFull == 1)
+                {
+                    if (checkFullCellDeadorAlive_Circular(gp, array, i, j).col >= 0 && checkFullCellDeadorAlive_Circular(gp, array, i, j).row >= 0)
+                        deletedCells[index1++] = checkFullCellDeadorAlive_Circular(gp, array, i, j);
+                }
+                else
+                {
+                    if (checkEmptyCellDeadorAlive_Circular(gp, array, i, j).col >= 0 && checkEmptyCellDeadorAlive_Circular(gp, array, i, j).row >= 0)
+                        addedCells[index2++] = checkEmptyCellDeadorAlive_Circular(gp, array, i, j);
+                }
+            }
+        }
+    }
+    //printf("Deleted Cells\n");
     for (int i = 0; i < index1; i++)
     {
-        //  printf("%d %d\n", deletedCells[i].row, deletedCells[i].col);
+        //printf("[ %d %d ]\n", deletedCells[i].row, deletedCells[i].col);
         array[deletedCells[i].row][deletedCells[i].col].isFull = 0;
     }
 
-    //  printf("Added Cells\n");
+    // printf("Added Cells\n");
     for (int i = 0; i < index2; i++)
     {
-        // printf("%d %d\n", addedCells[i].row, addedCells[i].col);
+        //printf("[ %d %d ]\n", addedCells[i].row, addedCells[i].col);
         array[addedCells[i].row][addedCells[i].col].isFull = 1;
     }
     // printf("---------------\n");

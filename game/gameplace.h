@@ -18,5 +18,5 @@ void printGameplaceFull(Gameplace gp, Cell **array);
 Cell **addRandomFullCells(Gameplace gp, int count);
 Cell checkFullCellDeadorAlive(Gameplace gp, Cell **array, int z, int k);
 Cell checkEmptyCellDeadorAlive(Gameplace gp, Cell **array, int z, int k);
-Cell **playGame(Gameplace gp, Cell **array);
+Cell **playGame(Gameplace gp, Cell **array, int choice);
 #endif // !GAMEPLACE

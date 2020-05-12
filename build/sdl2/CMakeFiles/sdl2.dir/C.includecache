@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../game/cell.h
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+
+../game/gameplace.h
+stdio.h
+-
+stdlib.h
+-
+cell.h
+../game/cell.h
+
+/home/gunznkodz/Game_of_Life_DT/sdl2/sdl2.c
+sdl2.h
+/home/gunznkodz/Game_of_Life_DT/sdl2/sdl2.h
+
+/home/gunznkodz/Game_of_Life_DT/sdl2/sdl2.h
+SDL2/SDL.h
+-
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+cell.h
+/home/gunznkodz/Game_of_Life_DT/sdl2/cell.h
+gameplace.h
+/home/gunznkodz/Game_of_Life_DT/sdl2/gameplace.h
+

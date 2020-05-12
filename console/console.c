@@ -5,6 +5,10 @@ void printInConsole()
 
     Cell **arrcell = addRandomFullCells(gp, 80);
 
+    printf("Clipped=1   or Circular=2\n");
+    int choice;
+    scanf("%d", &choice);
+
     while (1)
     {
         printf("\033[2J");
@@ -21,11 +25,10 @@ void printInConsole()
                 // draw 2 space with color 40 or 101 (black or magenta)
             }
         }
-        arrcell = playGame(gp, arrcell);
+        arrcell = playGame(gp, arrcell, choice);
         //show cursor
         printf("\033[?25h");
         sleep(1);
         printf("\n");
     }
-
 }
