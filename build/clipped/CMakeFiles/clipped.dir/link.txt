@@ -1,0 +1,2 @@
+/usr/bin/ar qc libclipped.a  CMakeFiles/clipped.dir/clipped.c.o
+/usr/bin/ranlib libclipped.a
