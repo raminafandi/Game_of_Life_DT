@@ -5,6 +5,6 @@
 #include "cell.h"
 #include "gameplace.h"
 
-Cell checkFullCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k);
-Cell checkEmptyCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k);
+Cell checkFullCellDeadorAlive_Circular(Gameplace gp, Cell **array, int z, int k);
+Cell checkEmptyCellDeadorAlive_Circular(Gameplace gp, Cell **array, int z, int k);
 #endif

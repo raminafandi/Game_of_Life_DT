@@ -1,5 +1,5 @@
 #include "circular.h"
-Cell checkFullCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k)
+Cell checkFullCellDeadorAlive_Circular(Gameplace gp, Cell **array, int z, int k)
 {
     int index = 0;
     for (int i = -1; i <= 1; i++)
@@ -49,7 +49,7 @@ Cell checkFullCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k)
     return index == 3 || index == 2 ? newCell(-1, -1) : array[z][k];
 }
 
-Cell checkEmptyCellDeadorAlive2(Gameplace gp, Cell **array, int z, int k)
+Cell checkEmptyCellDeadorAlive_Circular(Gameplace gp, Cell **array, int z, int k)
 {
     int index = 0;
     for (int i = -1; i <= 1; i++)

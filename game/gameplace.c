@@ -105,13 +105,13 @@ Cell **playGame(Gameplace gp, Cell **array, int choice)
             {
                 if (array[i][j].isFull == 1)
                 {
-                    if (checkFullCellDeadorAlive2(gp, array, i, j).col >= 0 && checkFullCellDeadorAlive2(gp, array, i, j).row >= 0)
-                        deletedCells[index1++] = checkFullCellDeadorAlive2(gp, array, i, j);
+                    if (checkFullCellDeadorAlive_Circular(gp, array, i, j).col >= 0 && checkFullCellDeadorAlive_Circular(gp, array, i, j).row >= 0)
+                        deletedCells[index1++] = checkFullCellDeadorAlive_Circular(gp, array, i, j);
                 }
                 else
                 {
-                    if (checkEmptyCellDeadorAlive2(gp, array, i, j).col >= 0 && checkEmptyCellDeadorAlive2(gp, array, i, j).row >= 0)
-                        addedCells[index2++] = checkEmptyCellDeadorAlive2(gp, array, i, j);
+                    if (checkEmptyCellDeadorAlive_Circular(gp, array, i, j).col >= 0 && checkEmptyCellDeadorAlive_Circular(gp, array, i, j).row >= 0)
+                        addedCells[index2++] = checkEmptyCellDeadorAlive_Circular(gp, array, i, j);
                 }
             }
         }

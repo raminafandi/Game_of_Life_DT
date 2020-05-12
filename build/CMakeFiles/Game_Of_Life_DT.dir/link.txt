@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/Game_Of_Life_DT.dir/main.c.o  -o Game_Of_Life_DT  game/libgame.a console/libconsole.a clipped/libclipped.a circular/libcircular.a sdl2/libsdl2.a game/libgame.a clipped/libclipped.a circular/libcircular.a game/libgame.a clipped/libclipped.a circular/libcircular.a -lSDL2 
