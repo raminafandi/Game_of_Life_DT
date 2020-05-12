@@ -3,7 +3,7 @@ name: 'CI'
 on:
   push:
     branches: 
-    - step5 
+    - master 
 
 jobs:
   all_linux:
