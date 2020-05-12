@@ -1,0 +1,34 @@
+name: 'CI'
+
+on:
+  push:
+    branches: 
+    - step5 
+
+jobs:
+  all_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: 'Packages'
+      run: sudo apt update && sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev libsdl2-2.0 gcovr
+    - name: 'Compile'
+      run: |
+        mkdir BuildCI
+        cd BuildCI
+        cmake ..
+        cmake --build .
+    - name: 'Testing'
+      run: |
+        cd BuildCI
+        chmod +x *
+        ctest -V
+    - name: 'Coverage'
+      run: |
+        cd BuildCI
+        chmod +x *
+        make cover_html
+    - uses: actions/upload-artifact@v1
+      with:
+        name: CoverageWeb
+        path: BuildCI/Coverage
