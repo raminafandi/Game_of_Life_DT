@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/unit_testing.dir/unit_testing.c.o  -o unit_testing  -lcunit game/libgame.a console/libconsole.a clipped/libclipped.a circular/libcircular.a sdl2/libsdl2.a game/libgame.a clipped/libclipped.a circular/libcircular.a game/libgame.a clipped/libclipped.a circular/libcircular.a -lSDL2 
