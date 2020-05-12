@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcircular.a  CMakeFiles/circular.dir/circular.c.o
-/usr/bin/ranlib libcircular.a
