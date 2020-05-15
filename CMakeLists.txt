@@ -18,6 +18,17 @@ if(DOXYGEN_FOUND)
 endif(DOXYGEN_FOUND)
 
 
+
+set (FILES_TAR_GZ "${CMAKE_CURRENT_SOURCE_DIR}")
+
+add_custom_target(dist
+    COMMAND ${CMAKE_COMMAND} -E tar "cfvz" "Game_Of_Life_DT.tar.gz" "${FILES_TAR_GZ}"
+    COMMAND ${CMAKE_COMMAND} -E copy 
+        ${CMAKE_CURRENT_SOURCE_DIR}/build/Game_Of_Life_DT.tar.gz
+        ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+
+
 add_executable(${PROJECT_NAME} main.c)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC game console)
