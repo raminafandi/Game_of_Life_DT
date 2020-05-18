@@ -4,7 +4,7 @@ void printInConsole()
     Gameplace gp = newgameplace(20, 20);
 
     Cell **arrcell = addRandomFullCells(gp, 80);
-
+    //chosing either clipped version of game will be playing or circular
     printf("Clipped=1   or Circular=2\n");
     int choice;
     scanf("%d", &choice);
@@ -15,7 +15,7 @@ void printInConsole()
         // hide cursor
         printf("\033[?25l");
         // goto 0,0
-        for (int i = 0; i < gp.nb_row; ++i)
+        for (int i = 0; i < gp.nb_row; ++i) //printing in color
         {
             printf("\033[%d;4H", i + 2);
             for (int j = 0; j < gp.nb_col; ++j)

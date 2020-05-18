@@ -1,4 +1,9 @@
 #include "cell.h"
+
+//Creating a new Cell
+//Return Type:Cell
+//Arguments: row and col (x,y)
+
 Cell newCell(int row, int col)
 {
     Cell cell;
@@ -8,6 +13,9 @@ Cell newCell(int row, int col)
     return cell;
 }
 
+//printing neighbours for testing purposes in initial stages
+//Return Type: Void
+//Arguments: Cell
 void printNeighbours(Cell c)
 {
     for (int i = -1; i <= 1; i++)

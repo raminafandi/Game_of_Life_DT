@@ -2,6 +2,10 @@
 #include "clipped.h"
 #include "circular.h"
 
+//creates new gameplace
+//Return Type: Gameplace
+//Arguments: rows,cols for the size of gameplace
+
 Gameplace newgameplace(int rows, int cols)
 {
     Gameplace gp;
@@ -9,6 +13,10 @@ Gameplace newgameplace(int rows, int cols)
     gp.nb_col = cols;
     return gp;
 }
+
+//create new array of Cells in given gameplace
+//Return Type: Cell 2d array
+//Arguments: gameplace
 
 Cell **createCells(Gameplace gp)
 {
@@ -31,6 +39,10 @@ Cell **createCells(Gameplace gp)
     return array;
 }
 
+//for printing coordinates of cells inside gameplace
+//Return Type: Void
+//Arguments: gameplace , cells as 2D array
+
 void printGameplace(Gameplace gp, Cell **array)
 {
     for (int i = 0; i < gp.nb_row; i++)
@@ -43,6 +55,10 @@ void printGameplace(Gameplace gp, Cell **array)
     }
 }
 
+//for printing cells are full or not inside gameplace
+//Return Type: Void
+//Arguments: gameplace , cells as 2D array
+
 void printGameplaceFull(Gameplace gp, Cell **array)
 {
     for (int i = 0; i < gp.nb_row; i++)
@@ -54,6 +70,10 @@ void printGameplaceFull(Gameplace gp, Cell **array)
         printf("\n");
     }
 }
+
+//Adds random full cells to the gameplace
+//Return Type: Cell 2d array
+//Arguments: gameplace , count of random full cells
 
 Cell **addRandomFullCells(Gameplace gp, int count)
 {
@@ -69,6 +89,11 @@ Cell **addRandomFullCells(Gameplace gp, int count)
 
     return arrcell;
 }
+
+// Play Game function : It takes the current Cell array and play one round
+//depends on choices and returns the array again for next round
+//Return Type: Cell 2d array
+//Arguments: gameplace , cells as 2D array and choice of user
 
 Cell **playGame(Gameplace gp, Cell **array, int choice)
 {
