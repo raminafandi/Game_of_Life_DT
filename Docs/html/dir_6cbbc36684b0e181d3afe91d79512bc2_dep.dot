@@ -1,0 +1,8 @@
+digraph "sdl2" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_6cbbc36684b0e181d3afe91d79512bc2 [shape=box, label="sdl2", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_6cbbc36684b0e181d3afe91d79512bc2.html"];
+  dir_37c6514aeece95293041e34c0f2e0784 [shape=box label="game" URL="dir_37c6514aeece95293041e34c0f2e0784.html"];
+  dir_6cbbc36684b0e181d3afe91d79512bc2->dir_37c6514aeece95293041e34c0f2e0784 [headlabel="2", labeldistance=1.5 headhref="dir_000004_000003.html"];
+}
