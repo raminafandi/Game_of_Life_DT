@@ -11,7 +11,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: 'Packages'
-      run: sudo apt update && sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev libsdl2-2.0 gcovr
+      run: |
+        sudo apt update && sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev libsdl2-2.0 gcovr
+        hg clone https://hg.libsdl.org/SDL SDL
+        cd SDL
+        mkdir build
+        cd build
+        ../configure
+        make
+        sudo make install
     - name: 'Compile'
       run: |
         mkdir BuildCI
@@ -31,4 +39,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: CoverageWeb
-        path: BuildCI/Coverage
+        path: BuildCI
