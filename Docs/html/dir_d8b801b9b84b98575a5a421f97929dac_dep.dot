@@ -1,9 +1,0 @@
-digraph "clipped" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_d8b801b9b84b98575a5a421f97929dac [shape=box, label="clipped", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_d8b801b9b84b98575a5a421f97929dac.html"];
-  dir_37c6514aeece95293041e34c0f2e0784 [shape=box label="game" URL="dir_37c6514aeece95293041e34c0f2e0784.html"];
-  dir_d8b801b9b84b98575a5a421f97929dac->dir_37c6514aeece95293041e34c0f2e0784 [headlabel="2", labeldistance=1.5 headhref="dir_000001_000003.html"];
-  dir_37c6514aeece95293041e34c0f2e0784->dir_d8b801b9b84b98575a5a421f97929dac [headlabel="1", labeldistance=1.5 headhref="dir_000003_000001.html"];
-}

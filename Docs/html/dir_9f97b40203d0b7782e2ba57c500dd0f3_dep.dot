@@ -1,8 +1,0 @@
-digraph "console" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_9f97b40203d0b7782e2ba57c500dd0f3 [shape=box, label="console", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_9f97b40203d0b7782e2ba57c500dd0f3.html"];
-  dir_37c6514aeece95293041e34c0f2e0784 [shape=box label="game" URL="dir_37c6514aeece95293041e34c0f2e0784.html"];
-  dir_9f97b40203d0b7782e2ba57c500dd0f3->dir_37c6514aeece95293041e34c0f2e0784 [headlabel="2", labeldistance=1.5 headhref="dir_000002_000003.html"];
-}

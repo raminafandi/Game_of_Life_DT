@@ -1,9 +1,0 @@
-digraph "circular" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_791b54bd9203a6d00972725576bac15f [shape=box, label="circular", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_791b54bd9203a6d00972725576bac15f.html"];
-  dir_37c6514aeece95293041e34c0f2e0784 [shape=box label="game" URL="dir_37c6514aeece95293041e34c0f2e0784.html"];
-  dir_791b54bd9203a6d00972725576bac15f->dir_37c6514aeece95293041e34c0f2e0784 [headlabel="2", labeldistance=1.5 headhref="dir_000000_000003.html"];
-  dir_37c6514aeece95293041e34c0f2e0784->dir_791b54bd9203a6d00972725576bac15f [headlabel="1", labeldistance=1.5 headhref="dir_000003_000000.html"];
-}
