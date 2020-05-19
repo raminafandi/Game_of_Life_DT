@@ -12,7 +12,14 @@ jobs:
     - uses: actions/checkout@v1
     - name: 'Packages'
       run: |
-            sudo apt update && sudo apt install libcunit1-dev gcovr 
+        sudo apt update && sudo apt install libcunit1-dev gcovr 
+        hg clone https://hg.libsdl.org/SDL SDL
+        cd SDL
+        mkdir build
+        cd build
+        ../configure
+        make
+        sudo make install
     - name: 'Compile'
       run: |
         mkdir Build

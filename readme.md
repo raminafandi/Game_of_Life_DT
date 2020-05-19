@@ -1,10 +1,12 @@
   <h2>SDL2 & Console</h2>
   <img src="./public/sdl.gif" width="350" style="margin-left:30px"/>
   <img src="./public/cons.gif" width="350" style="margin-left:30px"/>
-  </br>
-  </br>
-# Conway's Game of Life Development Techniques Project
-> Conway's Game of Life  written in C using SDL2 for graphic rendering.This project runs both in console and with the help of SDL2.
+  <br>
+  <br>
+  
+## Conway's Game of Life Development Techniques Project
+
+Conway's Game of Life  written in C using SDL2 for graphic rendering.This project runs both in console and with the help of SDL2.
 ## Installation
         Libraries for installation before running project:
         sudo apt update && sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev libsdl2-2.0 gcovr cmake  doxygen
