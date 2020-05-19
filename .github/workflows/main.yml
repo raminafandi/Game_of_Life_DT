@@ -41,5 +41,5 @@ jobs:
         make cover_html
     - uses: actions/upload-artifact@v1
       with:
-        name: binaries
+        name: CoverageWeb
         path: BuildCI/
