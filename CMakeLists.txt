@@ -43,6 +43,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC  game console clipped circular sdl2
 enable_testing()
 add_test(Game_Of_Life_DT ${TEST})
 
+## COVERAGE
+
 add_custom_target(cover
 COMMAND cmake --build . --target test
 COMMAND gcovr -r ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} $<TARGET_FILE:${TEST}>
