@@ -1,4 +1,4 @@
-name: 'CI'
+name: 'Continuous Integration'
 
 on:
   push:
@@ -9,34 +9,34 @@ jobs:
   all_linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: 'Packages'
       run: |
-        sudo apt update && sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev libsdl2-2.0 gcovr
-        hg clone https://hg.libsdl.org/SDL SDL
-        cd SDL
-        mkdir build
-        cd build
-        ../configure
-        make
-        sudo make install
+          sudo apt update && sudo apt install libcunit1-dev gcovr &&
+          hg clone https://hg.libsdl.org/SDL SDL
+          cd SDL
+          mkdir build
+          cd build
+          ../configure
+          make
+          sudo make install
     - name: 'Compile'
       run: |
-        mkdir BuildCI
-        cd BuildCI
+        mkdir Build
+        cd Build
         cmake ..
         cmake --build .
     - name: 'Testing'
       run: |
-        cd BuildCI
+        cd Build
         chmod +x *
         ctest -V
     - name: 'Coverage'
       run: |
-        cd BuildCI
+        cd Build
         chmod +x *
         make cover_html
     - uses: actions/upload-artifact@v1
       with:
         name: CoverageWeb
-        path: BuildCI
+        path: Build
