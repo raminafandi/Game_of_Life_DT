@@ -1,6 +1,10 @@
   <h2>SDL2 & Console</h2>
-  <img src="./.github/sdl.gif" width="400" style="margin-left:30px"/>
-  <img src="./.github/cons.gif" width="400" style="margin-left:30px"/>
+  <div>
+  <img src="./.github/sdl.gif" width="350" style="margin-left:30px"/>
+  <img src="./.github/cons.gif" width="350" style="margin-left:30px"/>
+  </div>
+  </br>
+  </br>
 # Conway's Game of Life Development Techniques Project
 > Conway's Game of Life  written in C using SDL2 for graphic rendering.This project runs both in console and with the help of SDL2.
 ## Installation
