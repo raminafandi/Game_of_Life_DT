@@ -10,7 +10,7 @@ on:
 
 
 jobs:
-  all_linux:
+  build_linux:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,3 +39,53 @@ jobs:
       with:
         name: binaries
         path: BuildCI/
+  test_linux:
+    needs: [build_linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: binaries
+          path: BuildCI/
+      - name: 'Packages'
+        run: |
+          sudo apt update
+          sudo apt install libcunit1-dev
+          sudo apt install libsdl2-dev
+          sudo apt install doxygen
+      - name: 'Testing'
+        run: |
+          cd BuildCI
+          chmod +x *
+          ctest -V
+  cover_linux:
+    needs: [test_linux]
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - uses: actions/download-artifact@v1
+       with:
+        name: binaries
+        path: BuildCI/
+     - name: 'Packages'
+       run: |
+        sudo apt update
+        sudo apt install libcunit1-dev gcovr libcunit1-dev
+        sudo apt install libsdl2-dev
+        sudo apt install doxygen
+        hg clone https://hg.libsdl.org/SDL SDL
+        cd SDL
+        mkdir build
+        cd build
+        ../configure
+        make
+        sudo make install
+     - name: 'Coverage'
+       run: |
+           cd BuildCI
+           chmod +x *
+           make cover_html
+     - uses: actions/upload-artifact@v1
+       with:
+         name: binaries
+         path: BuildCI/
